@@ -7,8 +7,16 @@
           </dt>
           <section v-for="section in track.sections" :key="section.id">
             <section v-for="speechy in section.speeches" :key="speechy.id">
-              <dd>
-                {{ speechy.title }}
+              <dd class="ml-20 text-xl">
+                <span>
+                  {{ speechy.time | formatTime }}
+                </span>
+                <span class="font-semibold">
+                  {{ speechy.title }}
+                </span>
+                <span v-if="speechy.title != 'Almoço'">
+                  {{ speechy.duration}} min
+                </span>
               </dd>
             </section>
           </section>
@@ -22,13 +30,18 @@
     name: "Conference",
     props: {
       conference: String,
+    },
+    filters: {
+      formatTime(value) {
+        const val = value / 60
+        const hours = parseInt(val)
+        const minutes = parseInt(60 * (val - hours))
+        const minutesSufix = (minutes < 10) ? "0" : ""
+        return `${hours}:${minutes + minutesSufix}`
+      }
     }
   }
 </script>
 
 <style scoped>
-
-  dl {
-    text-align: justify;
-  }
 </style>
