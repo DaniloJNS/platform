@@ -20,7 +20,23 @@ yarn build
 ```
 
 ### ⚙️ Lints e conserta arquivos
-```
+```bash
 yarn lint
+```
+
+###  ⚙️ Como rodar a aplicação
+
+#### 1. Essa aplicação usa a api  [Speeches](https://github.com/DaniloJNS/speeches) para funcionar, clone-a localmente e siga as instruções disponiveis no repositório para roda-la 
+
+#### 2.  Suba localmente a aplicação usando 
+
+```sh
+yarn serve
+```
+
+#### 3. No seu navegador acesse
+
+```sh
+https://localhost:8080
 ```
 
