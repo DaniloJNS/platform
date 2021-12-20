@@ -14,8 +14,8 @@
                 <span class="font-semibold">
                   {{ speechy.title }}
                 </span>
-                <span v-if="speechy.title != 'Almoço'">
-                  {{ speechy.duration}} min
+                <span v-if="speechy.duration != 0">
+                  {{ speechy.duration | formatDuration}}
                 </span>
               </dd>
             </section>
@@ -38,6 +38,9 @@
         const minutes = parseInt(60 * (val - hours))
         const minutesSufix = (minutes < 10) ? "0" : ""
         return `${hours}:${minutes + minutesSufix}`
+      },
+      formatDuration(value) {
+        return value + " min"
       }
     }
   }
