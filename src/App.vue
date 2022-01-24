@@ -1,9 +1,7 @@
 <template>
   <div class="w-full text-gray-100" id="app">
     <Header />
-    <div class="h-screen w-3/4 mx-auto bg-white">
-      <router-view/>
-    </div>
+    <router-view/>
   </div>
 </template>
 

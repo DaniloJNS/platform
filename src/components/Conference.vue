@@ -1,7 +1,7 @@
 <template>
   <section v-if="conference != null">
       <dl>
-        <section v-for="track in conference.tracks" :key="track.id">
+        <section class="rounded-lg shadow-lg p-4 my-6 bg-white" v-for="track in conference.tracks" :key="track.id">
           <dt class="text-xl font-bold">
             {{ track.title }}
           </dt>
@@ -21,15 +21,29 @@
             </section>
           </section>
         </section>
+        <a class="bg-blue-500 p-4 rounded-lg" href="#" @click.prevent="download(conference.id)">Dowload</a>
       </dl>
   </section>
 </template>
 
 <script>
+  import api from '@/services/api/index'
+
   export default{
     name: "Conference",
     props: {
-      conference: String,
+      conference: Object,
+    },
+    methods: {
+      download(id) {
+        api.speeches.download(id).then(data => {
+          const link = document.createElement('a')
+          link.href = URL.createObjectURL(data)
+          link.download = 'conference'
+          link.click()
+          URL.revokeObjectURL(link.href)
+        })
+      }
     },
     filters: {
       formatTime(value) {
@@ -45,6 +59,3 @@
     }
   }
 </script>
-
-<style scoped>
-</style>

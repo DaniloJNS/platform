@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    container_name: platform
+    command: "yarn serve"
+    environment:
+      API_HOST_NAME: speeches
+      API_HOST_SERVICE: api
+    volumes:
+      - .:/opt/app
+    ports:
+      - 8080:8080
+    tty: true
+    stdin_open: true
+    networks:
+      - web_network
+networks:
+  web_network:
+    driver: bridge

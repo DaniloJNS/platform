@@ -1,7 +1,8 @@
 <template>
-  <section id="home">
-    <h1 class="text-center text-3xl font-bold text-gray-600" >Bem-vindo ao organizador de palestras</h1>
-    <label class="mx-auto w-64 flex flex-col items-center px-4 py-6 bg-white text-blue-500 rounded-lg shadow-lg
+  <section class="space-y-6">
+    <h1 class="text-center text-3xl font-bold text-gray-600 my-10" >Exporte um arquivo
+      para organizar as suas palestras</h1>
+    <label class="mx-auto my-auto w-64 flex flex-col items-center px-4 py-6 bg-white text-blue-500 rounded-lg shadow-lg
       tracking-wide border border-blue-500 cursor-pointer hover:bg-blue-500
       hover:text-white mb-5 ">
         <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -11,7 +12,9 @@
         <span class="uppercase mt-2 text-base leading-normal" >{{ status }}</span>
         <input type='file' class="hidden" id="file" ref="file" accept=".txt" v-on:change="handleFileUpload()" @click="clearFileUpload()"/>
     </label>
-    <Conference v-bind:conference="conference" />
+    <aside class="w-1/2 mx-auto">
+      <Conference v-bind:conference="conference" />
+    </aside>
   </section>
 </template>
 
@@ -51,17 +54,3 @@
     }
   }
 </script>
-
-<style escoped>
-  #home {
-    background-color: white;
-    padding: 5px;
-    border-radius: 10px;
-    width: 75%;
-    margin: auto;
-  }
-  #home h1 {
-    margin-bottom: 20px;
-  }
-</style>
-

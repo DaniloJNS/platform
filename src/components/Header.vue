@@ -1,15 +1,18 @@
 <template>
   <header class="border-b boder-color-black bg-white">
-    <nav class="w-3/4 mx-auto">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/Conferences">Ver Todas</router-link>
+    <nav class="w-3/4 mx-auto text-xl font-bold">
+      <ul class="none flex space-x-4 justify">
+        <li class="none hover:bg-green-50 p-4"><router-link to="/">Home</router-link></li>
+        <li class="none hover:bg-green-50 p-4"><router-link
+            to="/Conferences">Ver Todas as palestras</router-link></li>
+      </ul>
     </nav>
   </header>
 </template>
 
 <style scoped>
 nav {
-  padding: 30px;
+  padding: 0px 30px;
 }
 
 nav a {
@@ -20,5 +23,4 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
-
 </style>
